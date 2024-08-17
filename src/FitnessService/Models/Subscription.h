@@ -15,7 +15,7 @@ public:
     tm buyDate;
     SubscriptionType type;
 
-    Subscription(string id, string name, string description, int price, int duration, bool active, string userId);
+    Subscription();
     Subscription();
     
 };

@@ -1,8 +1,13 @@
 #pragma once
 #include "../Subscription.h"
+#include "SubscriptionFactory.h"
+#include "../../../UserService/Models/User.h"
 
-class StandartSubscriptionFactory
+
+using namespace std;
+
+class StandartSubscriptionFactory : public SubscriptionFactory
 {
 public:
-    Subscription* create(string id, string name, string description, int price, int duration, bool active, string userId);
+    Subscription* create(User* user) override;
 };
