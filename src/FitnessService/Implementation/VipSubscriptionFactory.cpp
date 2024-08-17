@@ -14,7 +14,7 @@ Subscription* VipSubscriptionFactory::create(User* user) {
     subscription->description = "Vip subscription for " + user->name;
     subscription->active = true;
     subscription->userId = user->id;
-    subscription->type = SubscriptionType::Standart;
+    subscription->type = SubscriptionType::Vip;
     time_t t = time(NULL);
     auto now = localtime(&t);
     now->tm_year += 1900;
