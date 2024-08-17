@@ -1,7 +1,7 @@
 TARGET = FitnessClub
 CC = g++
 
-PREF_SRC = $(wildcard ./src/***/Implementation/*.cpp) 
+PREF_SRC = $(wildcard ./src/***/Implementation/*.cpp) PREF_SRC = $(wildcard ./src/***/**/Implementation/*.cpp) 
 PREF_OBJ = ./bin/
 
 SRC = $(wildcard $(PREF_SRC)*.cpp)

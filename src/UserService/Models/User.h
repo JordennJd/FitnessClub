@@ -1,7 +1,5 @@
-#ifndef HEADER_H_     
-#define HEADER_H_
+#pragma once  
 #include <string>
-#endif // HEADER_H_
 
 using namespace std;
 class User
@@ -15,4 +13,9 @@ public:
     string gender;
     string weigth;
     string heigth;
+
+    User(string name, string email,
+     string password, string age, string gender,
+      string weigth, string heigth);
+    User();
 };
