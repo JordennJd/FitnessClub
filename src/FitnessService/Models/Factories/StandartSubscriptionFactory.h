@@ -9,5 +9,6 @@ using namespace std;
 class StandartSubscriptionFactory : public SubscriptionFactory
 {
 public:
+    StandartSubscriptionFactory();
     Subscription* create(User* user) override;
 };

@@ -6,5 +6,6 @@
 class VipSubscriptionFactory : public SubscriptionFactory
 {
 public:
+    VipSubscriptionFactory();
     Subscription* create(User* user) override;
 };

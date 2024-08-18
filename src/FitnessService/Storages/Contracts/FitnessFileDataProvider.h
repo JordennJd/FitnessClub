@@ -1,14 +1,14 @@
 #pragma once
 #include "../../Models/Subscription.h"
-
+#include "FitnessDataProvider.h"
 #include <list>
 #include <string>
 
 using namespace std;
-class FileDataProvider
+class FitnessFileDataProvider : public FitnessDataProvider
 {
 public:
-    ~FileDataProvider();
+    ~FitnessFileDataProvider();
     list<Subscription> getAll();
     Subscription* getAll(int id);
     void save(Subscription* subscription);

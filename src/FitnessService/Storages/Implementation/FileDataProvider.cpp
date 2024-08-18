@@ -1,13 +1,12 @@
-#include "../Contracts/FileDataProvider.h"
+#include "../Contracts/FitnessFileDataProvider.h"
+#include "../../Models/Subscription.h"
 #include <fstream>
 #include <sstream>
 #include <iostream>
 
-FileDataProvider::~FileDataProvider() {
-    // Деструктор по умолчанию. Если требуется освобождение каких-либо ресурсов, добавьте сюда.
-}
 
-list<Subscription> FileDataProvider::getAll() {
+
+list<Subscription> FitnessFileDataProvider::getAll() {
     list<Subscription> subscriptions;
     ifstream file(fileName);
     
@@ -39,7 +38,7 @@ list<Subscription> FileDataProvider::getAll() {
     return subscriptions;
 }
 
-Subscription* FileDataProvider::getAll(int id) {
+Subscription* FitnessFileDataProvider::getAll(int id) {
     ifstream file(fileName);
     
     if (!file.is_open()) {
@@ -68,13 +67,13 @@ Subscription* FileDataProvider::getAll(int id) {
             return subscription;
         }
         delete subscription;
-    }
+    } 
 
     file.close();
     return nullptr;
 }
 
-void FileDataProvider::save(Subscription* subscription) {
+void FitnessFileDataProvider::save(Subscription* subscription) {
     ofstream file(fileName, ios::app);
     
     if (!file.is_open()) {
