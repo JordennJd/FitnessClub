@@ -1,6 +1,6 @@
 #include "../Models/User.h"
 
-User::User(string name, string email, string password, string age, string gender, string weigth, string heigth) {
+User::User(string name, string email, string password, string age, string gender, string weigth, string heigth, string subscriptionId) {
     this->name = name;
     this->email = email;
     this->password = password;
@@ -8,6 +8,7 @@ User::User(string name, string email, string password, string age, string gender
     this->gender = gender;
     this->weigth = weigth;
     this->heigth = heigth;
+    this->subscriptionId = subscriptionId;
 }
 
 User::User(){};

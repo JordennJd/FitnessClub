@@ -6,6 +6,7 @@
 
 
 
+
 list<Subscription> FitnessFileDataProvider::getAll() {
     list<Subscription> subscriptions;
     ifstream file(fileName);
@@ -20,13 +21,13 @@ list<Subscription> FitnessFileDataProvider::getAll() {
         stringstream ss(line);
         Subscription subscription;
         
-        getline(ss, subscription.id, ' ');
-        getline(ss, subscription.name, ' ');
-        getline(ss, subscription.description, ' ');
+        getline(ss, subscription.id, '@');
+        getline(ss, subscription.name, '@');
+        getline(ss, subscription.description, '@');
         ss >> subscription.price;
         ss >> subscription.duration;
         ss >> subscription.active;
-        getline(ss, subscription.userId, ' ');
+        getline(ss, subscription.userId, '@');
 
         // Пропуск для даты и типа подписки
         // Добавьте парсинг для buyDate, expirationDate и type, если потребуется
@@ -38,7 +39,7 @@ list<Subscription> FitnessFileDataProvider::getAll() {
     return subscriptions;
 }
 
-Subscription* FitnessFileDataProvider::getAll(int id) {
+Subscription* FitnessFileDataProvider::getById(int id) {
     ifstream file(fileName);
     
     if (!file.is_open()) {
@@ -51,14 +52,14 @@ Subscription* FitnessFileDataProvider::getAll(int id) {
         stringstream ss(line);
         Subscription* subscription = new Subscription();
 
-        getline(ss, subscription->id, ' ');
+        getline(ss, subscription->id, '@');
         if (subscription->id == to_string(id)) {
-            getline(ss, subscription->name, ' ');
-            getline(ss, subscription->description, ' ');
+            getline(ss, subscription->name, '@');
+            getline(ss, subscription->description, '@');
             ss >> subscription->price;
             ss >> subscription->duration;
             ss >> subscription->active;
-            getline(ss, subscription->userId, ' ');
+            getline(ss, subscription->userId, '@');
 
             // Пропуск для даты и типа подписки
             // Добавьте парсинг для buyDate, expirationDate и type, если потребуется
@@ -81,16 +82,20 @@ void FitnessFileDataProvider::save(Subscription* subscription) {
         return;
     }
 
-    file << subscription->id << " "
-         << subscription->name << " "
-         << subscription->description << " "
-         << subscription->price << " "
-         << subscription->duration << " "
-         << subscription->active << " "
+    file << subscription->id << "@"
+         << subscription->name << "@"
+         << subscription->description << "@"
+         << subscription->price << "@"
+         << subscription->duration << "@"
+         << subscription->active << "@"
          << subscription->userId << endl;
 
     // Пропуск для даты и типа подписки
     // Добавьте сохранение buyDate, expirationDate и type, если потребуется
 
     file.close();
+}
+
+FitnessFileDataProvider::~FitnessFileDataProvider(){
+
 }

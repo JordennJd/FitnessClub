@@ -10,7 +10,7 @@ class FitnessFileDataProvider : public FitnessDataProvider
 public:
     ~FitnessFileDataProvider();
     list<Subscription> getAll();
-    Subscription* getAll(int id);
+    Subscription* getById(int id);
     void save(Subscription* subscription);
 private:
     string fileName = "./subscriptions.txt";

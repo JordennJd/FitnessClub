@@ -13,9 +13,10 @@ public:
     string gender;
     string weigth;
     string heigth;
+    string subscriptionId;
 
     User(string name, string email,
      string password, string age, string gender,
-      string weigth, string heigth);
+      string weigth, string heigth, string subscriptionId);
     User();
 };

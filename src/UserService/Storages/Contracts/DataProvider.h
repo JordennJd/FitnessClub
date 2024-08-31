@@ -9,4 +9,5 @@ class DataProvider {
         virtual void saveUser(User* user) = 0;
         virtual User* getUser(int id) = 0;
         virtual ~DataProvider() = default;
+        virtual void updateUser(User* user) = 0;
 };

@@ -12,6 +12,8 @@ public:
 
     User* getUser(int id);
 
+    void updateUser(User* user);
+
     ~FileDataProvider();
 
 private:
