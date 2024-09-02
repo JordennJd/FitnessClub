@@ -97,5 +97,9 @@ void FitnessFileDataProvider::save(Subscription* subscription) {
 }
 
 FitnessFileDataProvider::~FitnessFileDataProvider(){
-
+    if (remove(this->fileName.c_str()) != 0) {
+        std::perror("Error deleting file"); // Вывод сообщения об ошибке
+    } else {
+        std::cout << "File successfully deleted" << std::endl;
+    }
 }

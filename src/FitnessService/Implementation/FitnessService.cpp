@@ -32,3 +32,7 @@ Subscription* FitnessService::getSubscription(int userId) {
     logger->log(_prefix + "get subscription for user with id " + to_string(userId));
     return this->dataProvider->getById(userId);
 }
+
+void FitnessService::setSubscriptionsFactory(SubscriptionFactory* subscriptionFactory){
+    this->subscriptionFactory = subscriptionFactory;
+}

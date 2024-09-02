@@ -14,6 +14,8 @@ public:
     Subscription* getSubscription(int id);
     Subscription* getSubscriptionByUserId(int userId);
     list<Subscription> getSubscriptions();
+    void setSubscriptionsFactory(SubscriptionFactory* subscriptionFactory);
+
 private:
     SubscriptionFactory* subscriptionFactory;
     Logger* logger;
